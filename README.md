@@ -46,7 +46,7 @@ database for the data that it needs and store it in a variable with a class type
 
 >[!NOTE]
 >It is not necessary to always have a repository. I'm not the best Android developer; I haven't specialized in anything, but my judgment tells me that
-We should use an actual Repository, and maybe even have a separate repository for each Model, simply for separating "unrelated" objects (i.e. `ArtistsRepository`, `YearsByArtistRepository`, `ShowsByArtistRepository` - I haven't thought this out yet, but I think it's worth discussing)
+We should use an actual Repository, and maybe even have a separate repository for each Model, simply for separating "unique" objects (i.e. `ArtistsRepository`, `YearsByArtistRepository`, `ShowsByArtistRepository` - I haven't thought this out yet, but I think it's worth discussing). Each class, from the Activity to the Repository can get cluttered.
 
 [Android Docs - Architecture](https://developer.android.com/topic/architecture)
 
