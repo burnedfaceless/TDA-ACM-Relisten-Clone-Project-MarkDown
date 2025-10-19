@@ -92,25 +92,24 @@ the latest values.
 
 ### Background Tasks
 
-`WorkManager` is the "new" way to do background tasks. I don't know if we would specifically use this, unless we wanted to update the cache.
+If memory serves me right, Android has foreground services and background services. I think that we would need a foreground service to play audio (and I think that a foreground service opens a notification).
 
-If memory serves me right, Android has foreground services and background services. I think that we would need a foreground service (and I think that a foreground service opens a notification).
-This needs to be confirmed because I don't remember it. If we look at the `UAMP` app below, it should be a good resource.
+This needs to be confirmed. If we look at the `UAMP` app below, it should be a good resource.
 
 ## Practical
 
-The below is a list of things we should do:
+Below is a list of things we should do:
 
-- Come up with the number of Activities based on the iOS Relisten app (i.e. ArtistsActivity). This will be done by simply looking at the iOS client's screens. I'm planning on doing this over the next week. 
+- Come up with the number of Activities based on the iOS Relisten app (i.e., ArtistsActivity). This will be done by simply looking at the iOS client's screens. I'm planning on doing this over the next week. 
 - Come up with the number of repositories (this will be a class that will query the database and API, as discussed above, caching the latest API call to the database). We could really get away with one, but if we want to try and make things "Cleaner" and have multiple ones to coincide with models, we could do that too
 - Decide UX tech - my vote is for Jetpack Compose, because I don't know it yet, and it is established by now and becoming pretty common. 
 - Decide whether to use Dagger / Hilt, dependency injection. To keep things simpler, we could leave this out.
 - See who wants to work on what - I'm planning on working on the views Jetpack Compose, if anyone wants to join me, that would be great
-  - I'm planning on creating an Activity for each screen based on an agreement (once I go through the app and write those out). Once that is done, I will start coding the views, and probably put dummy data there for now.
+  - I'm planning on creating an Activity for each screen based on an agreement (once I go through the app and write those out). Once that is done, I will start coding the views and probably put dummy data there for now.
 - If some people want to handle the API call with `Retrofit`, that would be great 
 - If some people want to handle the Model using the `Room ORM`, that would be great
 - Decide which Observable Class to use based on Philipp Lackner's video on Observable Classes
-- There is a lot of business logic, and interacting with Android APIs (i.e. a Foreground service). We should be able to pull a lot of this from UAMP (see below).
+- The actual portion of the app that plays audio - Relisten's API will return a Link to a MP3 (they pull their data from different sources, i.e. https://phish.in or https://archive.org). The code to code the actual music player, to open a foreground service, and to handle next and previous track, is another area 
 
 Please let me know what each of you wants to do, and we can try and plan this out over the next week.
 
