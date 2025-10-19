@@ -6,7 +6,7 @@ I talked to the Rahdyce (ACM Pres). I mentioned doing this project as part of th
 is that we would have "sprints" where we would **have** to work on the app. All of us know programming fundamentals. Therefore, all of us
 are capable of building this app, and the biggest roadblock is our not investing time into its completion.
 
-[TDA / ACM Collaboration Link](https://discord.gg/ZBbnnvs6)
+[TDA / ACM Collaboration Discord Server Link](https://discord.gg/ZBbnnvs6)
 
 ## Overview
 
