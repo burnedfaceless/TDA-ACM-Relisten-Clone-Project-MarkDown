@@ -44,7 +44,8 @@ database for the data that it needs and store it in a variable with a class type
 "observes" the variable, and if it changes (i.e., as mentioned earlier, an API call caches a different value to the DB), the DB will update that variable, and inside the observer pattern, your view will update with the latest value without you having to write any additional logic to do that.
 
 
-**Note:** It is not necessary to always have a repository. I'm not the best Android developer; I haven't specialized in anything, but my judgment tells me that
+>[!NOTE]
+>It is not necessary to always have a repository. I'm not the best Android developer; I haven't specialized in anything, but my judgment tells me that
 We should use an actual Repository, and maybe even have a separate repository for each Model, simply for separating "unrelated" objects (i.e. `ArtistsRepository`, `YearsByArtistRepository`, `ShowsByArtistRepository` - I haven't thought this out yet, but I think it's worth discussing)
 
 [Android Docs - Architecture](https://developer.android.com/topic/architecture)
@@ -98,9 +99,7 @@ This needs to be confirmed because I don't remember it. If we look at the `UAMP`
 
 ## Practical
 
-I think it would be good if we planned out the architecture. 
-
-I think it would be good to 
+The below is a list of things we should do:
 
 - Come up with the number of Activities based on the iOS Relisten app (i.e. ArtistsActivity). This will be done by simply looking at the iOS client's screens. I'm planning on doing this over the next week. 
 - Come up with the number of repositories (this will be a class that will query the database and API, as discussed above, caching the latest API call to the database). We could really get away with one, but if we want to try and make things "Cleaner" and have multiple ones to coincide with models, we could do that too
