@@ -34,18 +34,18 @@ The other way is with Jetpack Compose. With Jetpack Compose, you code layouts us
 
 [Philipp Lackner - MVVM in 100 Seconds](https://www.youtube.com/watch?v=-xTqfilaYow)
 
-To provide context on the above link, the Activity class will be the class that interacts with the view. Let's say when a client clicks on a button to open an Artist's page. You would add an "onClickListener" to the button (inside the ArtistsActivity class).
-When that button is clicked, the view would trigger some code in the Activity (i.e., a method) to call the next Activity (the Artists screen). The artist screen's Activity
-would load the `onResume()` method (where you should almost always put code that needs to run when an Activity is opened, for the first time or reopened subsequently), which would presumably call a method in the viewModel, which would presumably call a method in the repository, which would query the data from
-the database, and also cache the latest API call to the database. I've posted a video on observable classes below - the only one I've worked with is live data. 
+To provide context on the above link, the Activity class will be the class that interacts with the view. Let's say when a client clicks on a button to open an Artist's page. You would add an "onClickListener" to the button (inside the `AllArtistsActivity` class).
+When that button is clicked, the view would trigger some code in the Activity (i.e., a method) to call the next Activity / screen(the `ArtistActivity` class). The `ArtistActivity` class will
+would load the overriden `onResume()` callback (method - where you should almost always put code that needs to run when an Activity is opened, for the first time or reopened subsequently), which would presumably call a method in the viewModel, which would presumably call a method in the repository, which would query the data from
+the database, and also cache the latest API call to the database. I've posted a video on observable classes below, which makes things very simple, even if it seems complex - the only one I've worked with is live data. 
 
-It is pretty common for an app to make a call to an API endpoint and to cache the data locally in the database (SQLite / Room). The app will query the
-database for the data that it needs and store it in a variable with a class type of what they call "Live Data". If the data has been changed (an API call returns a different value than what the DB query returned), it will update in the view. In the Activity, you use an Observer pattern, which just
+It is pretty common for an app to make a call to an API endpoint and to cache the data locally in the database (SQLite using the Room ORM). The app will query the
+database for the data that it needs and store it in a variable with a class type of what they call "Live Data". If the data has been changed (an API call returns a different value than what the DB query returned), it will update in the view automatically. In the Activity, you use an Observer pattern, which just
 "observes" the variable, and if it changes (i.e., as mentioned earlier, an API call caches a different value to the DB), the DB will update that variable, and inside the observer pattern, your view will update with the latest value without you having to write any additional logic to do that.
 
 
 >[!NOTE]
->It is not necessary to always have a repository. I'm not the best Android developer; I haven't specialized in anything, but my judgment tells me that
+>It is not necessary to always have a repository. I'm not the best Android developer; I haven't specialized in it to be extremely knowledgeable, but my judgment tells me that
 We should use an actual Repository, and maybe even have a separate repository for each Model, simply for separating "unique" objects (i.e. `ArtistsRepository`, `YearsByArtistRepository`, `ShowsByArtistRepository` - I haven't thought this out yet, but I think it's worth discussing). Each class, from the Activity to the Repository can get cluttered.
 
 [Android Docs - Architecture](https://developer.android.com/topic/architecture)
@@ -73,14 +73,14 @@ This is completely optional.
 
 ### Retrofit API library 
 
-Retrofit is the library commonly used for API calls.
+Retrofit is the library commonly used for API calls, at least for REST API calls. 
 
 [Philipp Lackner - Retrofit](https://www.youtube.com/watch?v=t6Sql3WMAnk)
 
 ### Room ORM
 
 Room is the ORM to interact with SQLite. It integrates with LiveData, which is a pretty convenient way to make sure your view contains
-the latest values. I describe this a little below.
+the latest values. 
 
 [Philipp Lackner - Room ORM](https://www.youtube.com/watch?v=bOd3wO0uFr8)
 
@@ -110,6 +110,7 @@ The below is a list of things we should do:
 - If some people want to handle the API call with `Retrofit`, that would be great 
 - If some people want to handle the Model using the `Room ORM`, that would be great
 - Decide which Observable Class to use based on Philipp Lackner's video on Observable Classes
+- There is a lot of business logic, and interacting with Android APIs (i.e. a Foreground service). We should be able to pull a lot of this from UAMP (see below).
 
 Please let me know what each of you wants to do, and we can try and plan this out over the next week.
 
@@ -126,4 +127,5 @@ Kotlin. It hasn't received updates in a while, but it should still be a good ref
 - provide docs on how to create a pull request
 - fork existing repo or create a new repo
 - update TDA / ACM calendar with our team
+- Confirm service type and look over UAMP to get a better idea of what the app will entail
 
