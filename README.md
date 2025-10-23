@@ -1,5 +1,6 @@
 # Georgia Southern - TDA / ACM Collaboration
-## Team: You Deploy Myself; App - Weatherly: An Android Weather app with Offline Functionality
+## Team: You Deploy Myself 
+## App - Weatherly: An Android Weather app with Offline Functionality
 
 ### TDA / ACM Collaboration
 
@@ -88,7 +89,7 @@ the latest values.
 
 We will need to make API calls periodically and store them in the cache. I believe that WorkManger is the appropriate way to do this in the background.
 
-## Practical
+### Practical
 
 Below is a list of things we should do:
 
@@ -96,10 +97,13 @@ Below is a list of things we should do:
 
 I'
 
-## Postman
+### Postman
 
 [Postman Tutorial](https://www.youtube.com/watch?v=CLG0ha_a0q8) - Postman is commonly used when you need to make API calls. It's based on Chrome, and it allows you to enter the API information, then it loads the response (typically JSON) in the program. All of us should have a good understanding of the API service I use, so we should run it in Postman.
 
-## TODO
+### TODO
 - fill this out
+
+### Contributor List
+-[Contributor Name](https://github.com)
 
