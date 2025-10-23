@@ -103,5 +103,5 @@ Below is a list of things we should do:
 - fill this out
 
 ### Contributor List
--[Contributor Name](https://github.com)
+- [Contributor Name](https://github.com)
 
