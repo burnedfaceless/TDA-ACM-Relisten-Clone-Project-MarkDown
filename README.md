@@ -8,13 +8,15 @@ I talked to the Rahdyce (ACM Pres). I mentioned doing this project as part of th
 is that we would have "sprints" where we would **have** to work on the app. All of us know programming fundamentals. Therefore, all of us
 are capable of building this app, and the biggest roadblock is our not investing time into its completion.
 
-We're going to make this app as simple as possible. No dependency injection (it's not as intuitive). I'm happy to write the Boilerplate code for Retrofit and Room (I have worked with these before). 
+We're going to make this app as simple as possible to meet the timeframe of its completion. No dependency injection (it's not as intuitive). We're going to use Java because we all know it. I'm happy to write the Boilerplate code for Retrofit and Room (I have worked with these before). I'm going to try to do that before the first sprint.
+
+Please join the Discord server below.
 
 [TDA / ACM Collaboration Discord Server Link](https://discord.gg/ZBbnnvs6)
 
 ### Overview
 
-This app retrieves weather forecast data from an API using the [Retrofit Library](https://square.github.io/retrofit/). It caches it locally in a SQLite database powered by the [Room ORM](https://developer.android.com/training/data-storage/room). This app will make API calls when the app is opened, as well as periodically using WorkManager.
+This app retrieves weather forecast data from an API using the [Retrofit Library](https://square.github.io/retrofit/). It caches it locally in a SQLite database powered by the [Room ORM](https://developer.android.com/training/data-storage/room). This app will make API calls when it opens and periodically, in the background, using WorkManager.
 
 ## Android Development Basics
 
