@@ -95,8 +95,6 @@ Below is a list of things we should do:
 
 - This will be updated shortly.
 
-I'
-
 ### Postman
 
 [Postman Tutorial](https://www.youtube.com/watch?v=CLG0ha_a0q8) - Postman is commonly used when you need to make API calls. It's based on Chrome, and it allows you to enter the API information, then it loads the response (typically JSON) in the program. All of us should have a good understanding of the API service I use, so we should run it in Postman.
