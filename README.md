@@ -1,19 +1,19 @@
-# Relisten Android Application
+# Georgia Southern - TDA / ACM Collaboration
+## Team: You Deploy Myself; App - Weatherly: An Android Weather app with Offline Functionality
 
-## TDA / ACM Collaboration
+### TDA / ACM Collaboration
 
 I talked to the Rahdyce (ACM Pres). I mentioned doing this project as part of the TDA / ACM collaboration. I think that the advantage
 is that we would have "sprints" where we would **have** to work on the app. All of us know programming fundamentals. Therefore, all of us
 are capable of building this app, and the biggest roadblock is our not investing time into its completion.
 
+We're going to make this app as simple as possible. No dependency injection (it's not as intuitive). I'm happy to write the Boilerplate code for Retrofit and Room (I have worked with these before). 
+
 [TDA / ACM Collaboration Discord Server Link](https://discord.gg/ZBbnnvs6)
 
-## Overview
+### Overview
 
-This app is an Android client for [Relisten](https://relisten.net/). 
-The Swagger link for their API docs is: [Relisten API Docs](https://api.relisten.net/api-docs/index.html). This app will be written in
-Kotlin. Kotlin is very similar to Java. If you haven't worked with Kotlin before, a YouTube search for "Kotlin for Java Developers"
-will get you up to speed.
+This app retrieves weather forecast data from an API using the [Retrofit Library](https://square.github.io/retrofit/). It caches it locally in a SQLite database powered by the [Room ORM](https://developer.android.com/training/data-storage/room);
 
 ## Android Development Basics
 
@@ -28,21 +28,15 @@ a good idea to run it on some Samsung physical devices. Sometimes the user inter
 There are two ways to code a user interface in Android development. The first is with XML. This is similar to HTML and CSS.
 The other way is with Jetpack Compose. With Jetpack Compose, you code layouts using Kotlin. 
 
+We're going to use XML to get this done as quickly as possible, but if you enjoy Android development, go through the Jetpack Compose course below.
+
 [Philipp Lackner - Jetpack Compose Tutorial](https://www.youtube.com/watch?v=6_wK_Ud8--0)
 
 ### Architecture
 
 [Philipp Lackner - MVVM in 100 Seconds](https://www.youtube.com/watch?v=-xTqfilaYow)
 
-To provide context on the above link, the Activity class will be the class that interacts with the view. Let's say when a client clicks on a button to open an Artist's page. You would add an "onClickListener" to the button (inside the `AllArtistsActivity` class).
-When that button is clicked, the view would trigger some code in the Activity (i.e., a method) to call the next Activity / screen(the `ArtistActivity` class). The `ArtistActivity` class will
-would load the overriden `onResume()` callback (method - where you should almost always put code that needs to run when an Activity is opened, for the first time or reopened subsequently), which would presumably call a method in the viewModel, which would presumably call a method in the repository, which would query the data from
-the database, and also cache the latest API call to the database. I've posted a video on observable classes below, which makes things very simple, even if it seems complex - the only one I've worked with is live data. 
-
-It is pretty common for an app to make a call to an API endpoint and to cache the data locally in the database (SQLite using the Room ORM). The app will query the
-database for the data that it needs and store it in a variable with a class type of what they call "Live Data". If the data has been changed (an API call returns a different value than what the DB query returned), it will update in the view automatically. In the Activity, you use an Observer pattern, which just
-"observes" the variable, and if it changes (i.e., as mentioned earlier, an API call caches a different value to the DB), the DB will update that variable, and inside the observer pattern, your view will update with the latest value without you having to write any additional logic to do that.
-
+We're going to use Model View Viewmodel, with a Repository. I will plan this out more on Sunday.
 
 >[!NOTE]
 >It is not necessary to always have a repository. I'm not the best Android developer; I haven't specialized in it to be extremely knowledgeable, but my judgment tells me that
@@ -61,7 +55,7 @@ each activity. For simplicity, I think every view should be coded as an activity
 
 ### Dependency Injection (Hilt / Dagger)
 
-This is completely optional.
+We are not using this, but it is a good thing to learn if you want to do Android Development. 
 
 [Dependancy Injection (High Level Overview)](https://www.youtube.com/watch?v=tYZd8hserms)
 
@@ -88,43 +82,24 @@ the latest values.
 
 [Philipp Lackner - Observable Classes](https://www.youtube.com/watch?v=6Jc6-INantQ)
 
-^ I have only worked with LiveData. The above video should help us pick an Observable Class that is best for our needs.
+^ I have only worked with LiveData. We're going to use LiveData for the app, but the above video should give an overview of different Observable classes.
 
 ### Background Tasks
 
-If memory serves me right, Android has foreground services and background services. I think that we would need a foreground service to play audio (and I think that a foreground service opens a notification).
-
-This needs to be confirmed. If we look at the `UAMP` app below, it should be a good resource.
+We will need to make API calls periodically and store them in the cache. I believe that WorkManger is the appropriate way to do this in the background.
 
 ## Practical
 
 Below is a list of things we should do:
 
-- Come up with the number of Activities based on the iOS Relisten app (i.e., ArtistsActivity). This will be done by simply looking at the iOS client's screens. I'm planning on doing this over the next week. 
-- Come up with the number of repositories (this will be a class that will query the database and API, as discussed above, caching the latest API call to the database). We could really get away with one, but if we want to try and make things "Cleaner" and have multiple ones to coincide with models, we could do that too
-- Decide UX tech - my vote is for Jetpack Compose, because I don't know it yet, and it is established by now and becoming pretty common. 
-- Decide whether to use Dagger / Hilt, dependency injection. To keep things simpler, we could leave this out.
-- See who wants to work on what - I'm planning on working on the views Jetpack Compose, if anyone wants to join me, that would be great
-  - I'm planning on creating an Activity for each screen based on an agreement (once I go through the app and write those out). Once that is done, I will start coding the views and probably put dummy data there for now.
-- If some people want to handle the API call with `Retrofit`, that would be great 
-- If some people want to handle the Model using the `Room ORM`, that would be great
-- Decide which Observable Class to use based on Philipp Lackner's video on Observable Classes
-- The actual portion of the app that plays audio - Relisten's API will return a Link to a MP3 (they pull their data from different sources, i.e. https://phish.in or https://archive.org). The code to code the actual music player, to open a foreground service, and to handle next and previous track, is another area 
+- This will be updated shortly.
 
-Please let me know what each of you wants to do, and we can try and plan this out over the next week.
+I'
 
-Obviously, we should run the Relisten iOS app. If you are on Android but you have a Mac with Apple processors, it will run on that. I am planning on taking screenshots
-of the Relisten iOS app, and writing out potential Activities (As mentioned above)
+## Postman
 
-## UAMP
-
-[UAMP](https://github.com/android/uamp/blob/main/docs%2FFullGuide.md) is an older demo that illustrates how to create a music streaming app using
-Kotlin. It hasn't received updates in a while, but it should still be a good reference.
+[Postman Tutorial](https://www.youtube.com/watch?v=CLG0ha_a0q8) - Postman is commonly used when you need to make API calls. It's based on Chrome, and it allows you to enter the API information, then it loads the response (typically JSON) in the program. All of us should have a good understanding of the API service I use, so we should run it in Postman.
 
 ## TODO
-- provide screenshots and potential activities
-- provide docs on how to create a pull request
-- fork existing repo or create a new repo
-- update TDA / ACM calendar with our team
-- Confirm service type and look over UAMP to get a better idea of what the app will entail
+- fill this out
 
