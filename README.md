@@ -29,7 +29,7 @@ a good idea to run it on some Samsung physical devices. Sometimes the user inter
 There are two ways to code a user interface in Android development. The first is with XML. This is similar to HTML and CSS.
 The other way is with Jetpack Compose. With Jetpack Compose, you code layouts using Kotlin. 
 
-We're going to use XML to get this done as quickly as possible, but if you enjoy Android development, go through the Jetpack Compose course below.
+We're going to use XML to get this done as quickly as possible, but bonus points if one of us rewrites the UI in Jetpack Compose.
 
 [Philipp Lackner - Jetpack Compose Tutorial](https://www.youtube.com/watch?v=6_wK_Ud8--0)
 
