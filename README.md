@@ -105,8 +105,8 @@ Below is a list of things we should do:
 ### Functionality Outline
 - Use GPS to get latitude and longitude to query local weather ("LocalWeatherActivity")
 - Allow the user to save locations by Zip, City, or other location identifiers ("SavedWeatherActivity")
-- Have a view to display if weather cannot be retrieved - have logic to determine when to display that (i.e. at which point in time does cached weather end) - additionally possibly display a message that says the weather was cached at a longer period of time
-
+- Have a "Weather Unavailable" view to display if weather cannot be retrieved - have logic to determine when to display that (i.e. at which point in time does cached weather end) - additionally possibly display a message that says the weather was cached at a longer period of time, and may not be as accurate
+  
 ### Contributor List
 - [Contributor Name](https://github.com)
 
