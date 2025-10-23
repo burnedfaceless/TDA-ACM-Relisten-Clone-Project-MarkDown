@@ -14,7 +14,7 @@ We're going to make this app as simple as possible. No dependency injection (it'
 
 ### Overview
 
-This app retrieves weather forecast data from an API using the [Retrofit Library](https://square.github.io/retrofit/). It caches it locally in a SQLite database powered by the [Room ORM](https://developer.android.com/training/data-storage/room);
+This app retrieves weather forecast data from an API using the [Retrofit Library](https://square.github.io/retrofit/). It caches it locally in a SQLite database powered by the [Room ORM](https://developer.android.com/training/data-storage/room). This app will make API calls when the app is opened, as well as periodically using WorkManager.
 
 ## Android Development Basics
 
